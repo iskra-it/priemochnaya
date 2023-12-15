@@ -66,7 +66,7 @@ export const MessagesList = observer(({ marginBottom }: MessagesListProps) => {
                         <WithAutoScroll key={JSON.stringify(m.cases)}>
                             <Recommendation
                                 marginBottom={8}
-                                recommedation={m}
+                                recommendation={m}
                                 isFinalStep={isFinalStep}
                             />
                         </WithAutoScroll>
