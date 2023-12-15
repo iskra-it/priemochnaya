@@ -1,3 +1,3 @@
-const baseUrl = "https://iskra.foundation"
+const baseUrl = "http://localhost"
 
 export default baseUrl

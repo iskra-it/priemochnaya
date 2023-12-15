@@ -8,6 +8,7 @@ location /media/ {
   add_header Access-Control-Allow-Origin *;
 }
 
-location * { 
+location / { 
+  alias /var/www/frontend/;
   add_header Access-Control-Allow-Origin *;
 }

@@ -25,6 +25,11 @@ services:
     #   - "5432:5432"
     # volumes:
     #   - postgres_data:/var/lib/postgresql/data/
+  frontend:
+    container_name: frontend
+    build: frontend
+    depends_on:
+      - nginx-proxy
   nginx-proxy:
     container_name: nginx-proxy
     build: nginx
