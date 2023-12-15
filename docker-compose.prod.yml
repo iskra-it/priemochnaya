@@ -28,8 +28,10 @@ services:
   frontend:
     container_name: frontend
     build: frontend
-    depends_on:
-      - nginx-proxy
+    volumes:
+      - html:/build/dist
+    # depends_on:
+    #   - nginx-proxy
   nginx-proxy:
     container_name: nginx-proxy
     build: nginx
@@ -44,7 +46,9 @@ services:
       - html:/usr/share/nginx/html
       - vhost:/etc/nginx/vhost.d
       - /var/run/docker.sock:/tmp/docker.sock:ro
+      # - www:/var/www/frontend
     depends_on:
+      - frontend
       - web
   acme-companion:
     image: nginxproxy/acme-companion
@@ -66,3 +70,4 @@ volumes:
   html:
   vhost:
   acme:
+  www:

@@ -1,7 +1,13 @@
-FROM node:20-alpine
+FROM node:20-alpine as builder
 
 WORKDIR /build
 
-COPY . /build/
+COPY package*.json ./
+RUN npm install
+
+COPY . ./
 RUN npm run build
-COPY /build/dist/ /var/www/frontend
+
+# WORKDIR /build/dist
+
+# COPY . /var/www/frontend/
