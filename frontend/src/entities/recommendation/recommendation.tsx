@@ -8,17 +8,17 @@ import { FC } from "react";
 import { Cases } from "./components/cases";
 
 type RecommendationProps = {
-    recommedation: RecommendationModel;
+    recommendation: RecommendationModel;
     isFinalStep: boolean;
     marginBottom?: string | number;
 };
 
 export const Recommendation: FC<RecommendationProps> = ({
     marginBottom,
-    recommedation,
+    recommendation,
     isFinalStep: finalStep,
 }) => {
-    if (isUniqueRecommendation(recommedation) && !finalStep) {
+    if (isUniqueRecommendation(recommendation) && !finalStep) {
         return <></>;
     }
 
@@ -29,17 +29,17 @@ export const Recommendation: FC<RecommendationProps> = ({
             overflow="hidden"
             borderWidth={3}
             borderRadius={16}
-            borderColor={getBorderColor(recommedation)}
+            borderColor={getBorderColor(recommendation)}
             backgroundColor={getBgColor()}
         >
             <CardHeader>
                 <Text fontSize="md" color="blackAlpha.700">
-                    {getTitle(recommedation)}
+                    {getTitle(recommendation)}
                 </Text>
             </CardHeader>
-            {!!recommedation.cases.length && (
+            {!!recommendation.cases.length && (
                 <CardBody>
-                    <Cases cases={recommedation.cases} />
+                    <Cases cases={recommendation.cases} />
                 </CardBody>
             )}
         </Card>
